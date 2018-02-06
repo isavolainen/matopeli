@@ -21,7 +21,7 @@ TEXT_COLOR = COLOR
 SNAKE_COLOR = COLOR
 FOOD_COLOR = COLOR
 
-SPEED = 4
+SPEED = 16
 SNAKE_SIZE = 16
 FOOD_SIZE = SNAKE_SIZE
 (UP, RIGHT, DOWN, LEFT) = (0, 1, 2, 3)
@@ -38,7 +38,7 @@ KEY_LEFT = 276
 arrow_keys = (KEY_UP, KEY_DOWN, KEY_RIGHT, KEY_LEFT)
 perimeter = MARGIN + BORDER
 mid = (SCREEN_X//2, SCREEN_Y//2)
-grid = (SCREEN_X//FOOD_SIZE, SCREEN_Y//FOOD_SIZE)
+#grid = (SCREEN_X//FOOD_SIZE, SCREEN_Y//FOOD_SIZE)
 
 
 # Class definitions
@@ -265,8 +265,8 @@ while True:
             frame_rate = 30 / (t1-t0)
             t0 = t1
 
-        #if frame_count % 4 == 0:
-        snake.update()
+        if frame_count % 4 == 0:
+            snake.update()
         if collides(snake, food):
             score += 1
             snake.grow()
